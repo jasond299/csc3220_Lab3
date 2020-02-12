@@ -86,11 +86,13 @@ void MyAddressBook::openFile(QString filepath)
 
 QString MyAddressBook::getPhoneNumber(int index)
 {
-    return phoneNumbers.at(index);
+    return phoneNumbers.at(filteredIndex[index]);
 }
 
 void MyAddressBook::setFilterString(QString fStr)
 {
+    filteredIndex.clear();
+
     for (int i=0; i < phoneNumbers.size(); i++){
         if (phoneNumbers[i].startsWith(fStr)){
             filteredIndex.push_back(i);
@@ -100,3 +102,4 @@ void MyAddressBook::setFilterString(QString fStr)
 
     emit layoutChanged();
 }
+

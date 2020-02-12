@@ -19,6 +19,14 @@ public:
 private slots:
     void on_actionOpen_Address_Book_triggered();
 
+    void on_pushButton_clicked();
+
+    void on_tableView_clicked(const QModelIndex &index);
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::Lab3Window *ui;
     MyAddressBook *myModel;

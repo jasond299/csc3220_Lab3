@@ -28,3 +28,33 @@ void Lab3Window::on_actionOpen_Address_Book_triggered()
     std::cout << filename.toStdString() << std::endl;
     myModel->openFile(filename);
 }
+
+void Lab3Window::on_pushButton_clicked()
+{
+    myModel->setFilterString("8");
+}
+
+void Lab3Window::on_tableView_clicked(const QModelIndex &index)
+{
+    std::cout << index.row() << "," << index.column() << std::endl;
+    ui->label->setText(myModel->getPhoneNumber(index.row()));
+}
+
+void Lab3Window::on_pushButton_3_clicked()
+{
+    ui->label->setText(ui->label->text()+"1");
+    QString str = ui->label->text();
+    if(str.length() == 3 || str.length() == 7){
+        ui->label->setText(ui->label->text()+"-");
+    }
+}
+
+void Lab3Window::on_pushButton_2_clicked()
+{
+    QString str = ui->label->text();
+        ui->label->setText(str.left(str.length()-1));
+
+    if(str.length() == 4 || str.length() == 8){
+        ui->label->setText(str.left(str.length()-1));
+    }
+}
